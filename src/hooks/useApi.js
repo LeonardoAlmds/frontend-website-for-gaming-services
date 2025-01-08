@@ -16,11 +16,16 @@ export const useApi = () => ({
     return response.data
   },
 
+  getProducts: async() => {
+    const response = await api.get('/api/products')
+    return response.data
+  },
+
   getTopProducts: async() => {
     const response = await api.get('/api/products/top-rated')
     return response.data
   },
 
-  
+
 
 })
