@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar'
 import { CategoriesProvider } from './contexts/CategoriesContext'
 
 import Home from './pages/Home/Home'
+import Footer from './components/Footer/Footer'
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
           <Route path='/' element={<Home />} />
         </Routes>
       </div>
+
+      <Footer />
     </>
       
   )
