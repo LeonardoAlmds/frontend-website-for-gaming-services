@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar'
 import { CategoriesProvider } from './contexts/CategoriesContext'
 
 import Home from './pages/Home/Home'
+import Login from './pages/login'
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='*' element={<h1>Not Found</h1>} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </div>
     </>
