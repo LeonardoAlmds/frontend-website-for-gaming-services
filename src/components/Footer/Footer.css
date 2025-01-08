@@ -1,0 +1,129 @@
+.footer {
+  background-color: var(--font-category-title);
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  padding: 60px 0 ;
+  font-size: 16px;
+  padding: 60px 90px;
+}
+
+.content-footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-section {
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  color: var(--color-text-footer);
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  color: var(--color-text-footer);
+  margin-bottom: 20px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: var(--color-text-footer);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: var(--color-text-footer);
+}
+
+.sobre p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sobre .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.sobre a {
+  font-size: 30px;
+  color: var(--color-text-footer);
+}
+
+.social-icons a img {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+  border-top: 1px solid #444;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.newsletter h3 {
+  font-size: 16px;
+  color: var(--color-text-footer);
+  margin-bottom: 15px;
+}
+
+.newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.newsletter input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--border-input-search);
+  border-radius: 4px;
+  width: 350px;
+  background-color: var(--background-input-search);
+  color: var(--search-color);
+  font-weight: 600;
+}
+
+.newsletter input:focus {
+  border: 1px solid var(--border-input-search);
+  outline: none;
+}
+
+.newsletter button {
+  padding: 10px;
+  font-size: 14px;
+  background-color: var(--blue-primary);
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.newsletter button:hover {
+  background-color: var( --blue-hover);
+}
