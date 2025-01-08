@@ -6,9 +6,9 @@ import { ProductsContext } from "../../contexts/ProductsContext";
 const Featured = () => {
   const productsContext = useContext(ProductsContext);
   const [topProducts, setTopProducts] = useState([]);
-  const [itemsToShow, setItemsToShow] = useState(12); // Itens iniciais
-  const [itemsIncrement, setItemsIncrement] = useState(6); // Incremento inicial
-  const [isMobile, setIsMobile] = useState(false); // Controle do estado mobile
+  const [itemsToShow, setItemsToShow] = useState(12); 
+  const [itemsIncrement, setItemsIncrement] = useState(6); 
+  const [isMobile, setIsMobile] = useState(false); 
 
   const loadTopProducts = async () => {
     try {
@@ -18,7 +18,7 @@ const Featured = () => {
       console.error("Erro ao carregar os produtos em destaque", error);
     }
   };
-
+  
   const updateLayout = (e) => {
     const mobile = e.matches;
     setIsMobile(mobile);
@@ -27,9 +27,8 @@ const Featured = () => {
   };
 
   useEffect(() => {
-    // Configurar o listener para media query
     const mediaQuery = window.matchMedia("(max-width: 1600px)");
-    updateLayout(mediaQuery); // Aplicar configuração inicial
+    updateLayout(mediaQuery);
     mediaQuery.addEventListener("change", updateLayout);
 
     return () => {
