@@ -7,6 +7,7 @@ import { CategoriesProvider } from './contexts/CategoriesContext'
 import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import Category from './pages/Category/Category'
+import Login from './pages/login'
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='*' element={<h1>Not Found</h1>} />
+          <Route path='/login' element={<Login />} />
 
           <Route 
             path='/category' 
