@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Monda:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --font: "Montserrat", sans-serif;
+
+  --white: #FFF;
+  --gray: #F1F1F1;
+  --black: #000000;
+  --color-font: #787878;
+  --blue-primary: #0B6BB5;
+  --blue-hover: #007BFF;
+  --border-color: #ccc;
+  --color-text-footer: #8e8e8e;
+
+
+  --background-input-search: #F1F1F1;
+  --border-input-search: #e9e9e9;
+  --search-color: #323232;
+  --background-modal-option: #f0f0f0;
+
+  --font-category-title: #212121;
+
+  --border-search-category: #c6c6c6;
+  --font-color-search-category: #000000;
+
+  --background-questions: #e0e0e0;
+  --question-color: #d6d6d6;
+  --question-answer: #c7c7c7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+body.dark-mode {
+  background-color: #1E1E1E;
+  --color-font: #d0d0d0;
+  --white: #232323;
+  --border-color: #343434;
+
+  --background-input-search: #3c3c3c;
+  --border-input-search: #343434;
+  --search-color: #a8a8a8;
+  --background-modal-option: #494949;
+
+  --font-category-title: #d9d9d9;
+
+  --border-search-category: #474747;
+  --font-color-search-category: #dbdbdb;
+
+  --background-questions: #252525;
+  --question-color: #202020;
+  --question-answer: #1a1a1a;
+}
+
+header, main, footer {
+  padding: 0 90px;
+}
+
+footer {
+  font-size: 14px;
+  background-color: #222;
+  margin-top: auto;
+}
+
+.category-search {
+  padding: 8px 15px;
+  font-size: 15px;
+  margin-top: 15px;
+  width: 24%;
+  border: 2px solid var(--border-search-category);
+  background-color: var(--white);
+  border-radius: 30px;
+  color: var(--font-color-search-category);
+  font-weight: 500;
+}
+
+input:focus.category-search {
+  outline: 0;
+}
+

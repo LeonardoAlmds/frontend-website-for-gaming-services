@@ -1,0 +1,136 @@
+.content-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 90px;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 100px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-input-search);
+  border-radius: 25px;
+  width: 500px;
+  border: 2px solid var(--border-input-search);
+  transition: ease-in-out .3s;
+}
+
+.search-bar input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--search-color);
+  border-radius: 25px;
+  -webkit-box-shadow: 0 0 0px 1000px var(--background-input) inset;
+}
+
+.search-bar svg {
+  margin-left: 15px;
+  color: var(--search-color);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navigation .categories, #about {
+  text-decoration: none;
+  color: var(--color-font);
+  font-size: 16px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation .categories{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.navigation .categories svg {
+  font-size: 20px;
+}
+
+
+.highlight-btn {
+  background-color: var(--blue-primary);
+  color: var(--gray);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.highlight-btn:hover {
+  background-color: var(--blue-hover);
+}
+
+.navigation .icon-btn {
+  background: none;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  color: var(--color-font);
+  cursor: pointer;
+}
+
+.navigation .icon-btn {
+  font-size: 16px;
+}
+
+.menu-options {
+  border: 1px solid var(--border-color);
+  background-color: var(--white);
+  padding: 10px;
+  position: absolute; 
+  right: 113px; 
+  z-index: 1000; 
+  max-height: 0;
+  overflow: hidden; 
+  opacity: 0; 
+  transform: translateY(-10px); 
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out; 
+}
+
+.menu-options.show {
+  max-height: 200px;
+  opacity: 1; 
+  transform: translateY(0);
+}
+
+.menu-options button {
+  width: 100%;
+  display: block; 
+  margin: 5px 0; 
+  padding: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: 600;
+  text-align: left;
+  color: var(--color-font);
+  font-size: 14px;
+}
+
+.menu-options button i {
+  margin-right: 6px;
+  font-size: 16px;
+}
