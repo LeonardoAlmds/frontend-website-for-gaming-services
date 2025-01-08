@@ -6,6 +6,7 @@ import { CategoriesProvider } from './contexts/CategoriesContext'
 
 import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
+import Category from './pages/Category/Category'
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
+
+          <Route path='/category' element={<Category />} />
         </Routes>
       </div>
 
