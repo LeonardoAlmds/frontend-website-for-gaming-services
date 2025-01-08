@@ -1,6 +1,6 @@
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo.svg';
+import Logo from '../../../assets/logo.svg';
 import { FaSearch, FaShoppingCart } from 'react-icons/fa';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosArrowDown } from "react-icons/io";
