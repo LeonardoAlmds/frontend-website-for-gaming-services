@@ -3,8 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const Category = () => {
   const location = useLocation();
-  const { category } = location.state || {}; // Evita erro caso o estado não exista
-  console.log(category)
+  const { category } = location.state || {}; 
 
   return (
     <div>
