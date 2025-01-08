@@ -8,7 +8,6 @@ const PopularCategory = () => {
 
   const loadTopCategories = async () => {
     try {
-      // Obtendo os dados diretamente da função do contexto
       const categories = await categoriesContext.getTopCategories();
       setTopCategories(Array.isArray(categories) ? categories : []);
     } catch (error) {

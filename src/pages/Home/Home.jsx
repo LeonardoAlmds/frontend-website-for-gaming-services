@@ -1,5 +1,8 @@
 import PopularCategory from "../../components/PopularCategory/PopularCategory"
 import { CategoriesProvider } from "../../contexts/CategoriesContext"
+import Carousel from '../../components/Carousel/Carousel'
+import Featured from "../../components/Featured/Featured"
+import { ProductsProvider } from "../../contexts/ProductsContext"
 
 const Home = () => {
   return (
@@ -7,6 +10,12 @@ const Home = () => {
       <CategoriesProvider>
         <PopularCategory/>
       </CategoriesProvider>
+      
+      <Carousel />
+
+      <ProductsProvider>
+        <Featured />
+      </ProductsProvider>
     </>
   )
 }
