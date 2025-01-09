@@ -23,9 +23,13 @@ function App() {
           <Route path='*' element={<h1>Not Found</h1>} />
           <Route path='/login' element={<Login />} />
 
-          <Route path='/category' element={<Category />} />
-
           <Route path='/product' element={<Product />} />
+          
+          <Route 
+            path='/category' 
+            element={
+              <Category />
+            }/>
         </Routes>
       </div>
 

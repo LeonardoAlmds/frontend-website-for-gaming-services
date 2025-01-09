@@ -4,8 +4,17 @@ import { useApi } from '../hooks/useApi';
 export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
+    const [products, setProducts] = useState()
     const [topProducts, setTopProducts] = useState()
     const api = useApi();
+
+    const getProducts = async () => {
+      if(!products) {
+        const data = await api.getProducts();
+        setProducts(data)
+        return data
+      }
+    }
 
     const getTopProducts = async () => {
       if (!topProducts) {
@@ -18,7 +27,9 @@ export const ProductsProvider = ({ children }) => {
   return (
           <ProductsContext.Provider 
             value={{
+              products,
               topProducts,
+              getProducts,
               getTopProducts
             }}
           >
