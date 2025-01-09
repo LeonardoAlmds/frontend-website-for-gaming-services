@@ -14,7 +14,7 @@ const Category = () => {
 
   const loadProducts = async () => {
     try {
-      const products = await productsContext.getProductById(category.id);
+      const products = await productsContext.getProductByCategoryId(category.id);
       setProducts(Array.isArray(products) ? products : []);
     } catch (error) {
       console.error("Erro ao carregar a categoria", error);
@@ -47,7 +47,6 @@ const Category = () => {
       />
 
       <Products products={filteredProducts}/>
-     
   </div>
   );
 }

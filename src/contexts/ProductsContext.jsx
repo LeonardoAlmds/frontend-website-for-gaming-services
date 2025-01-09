@@ -25,10 +25,20 @@ export const ProductsProvider = ({ children }) => {
       }
     }
 
-    const getProductById = async (categoryId) => {
-      const data = await api.getProductById(categoryId);
-      setProduct(data)
-      return data
+    const getProductById = async (id) => {
+      if (!product) {
+        const data = await api.getProductById(id);
+        setProduct(data);
+        return data
+      }
+    }
+
+    const getProductByCategoryId = async (categoryId) => {
+      if (!products) {
+        const data = await api.getProductByCategoryId(categoryId);
+        setProducts(data);
+        return data
+      }
     }
 
   return (
@@ -39,7 +49,8 @@ export const ProductsProvider = ({ children }) => {
               topProducts,
               getProducts,
               getProductById,
-              getTopProducts
+              getTopProducts,
+              getProductByCategoryId
             }}
           >
               {children}

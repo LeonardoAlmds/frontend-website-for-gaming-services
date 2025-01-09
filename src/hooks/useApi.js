@@ -26,7 +26,13 @@ export const useApi = () => ({
     return response.data
   },
 
-  getProductById: async(categoryId) => {
+  getProductById: async(id) => {
+    const response = await api.get(`/api/products?id=${id}`)
+    console.log(response.data)
+    return response.data
+  },
+
+  getProductByCategoryId: async(categoryId) => {
     console.log('hook' + categoryId)
     const response = await api.get('/api/products?category_id='+ categoryId)
     return response.data

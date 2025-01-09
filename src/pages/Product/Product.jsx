@@ -1,32 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Product.css";
 
+import { ProductsContext } from "../../contexts/ProductsContext";
+
 const Product = () => {
+    const productsContext = useContext(ProductsContext);
     const [questions, setQuestions] = useState([]);
     const [newQuestion, setNewQuestion] = useState("");
     const [product, setProduct] = useState("");
-    const [price, setPrice] = useState("");
-    const [category, setCategory] = useState("");
-    const [availableCount, setAvailableCount] = useState("");
-    const [productSold, setProductSold] = useState("");
 
-    const fetchProduct = async () => {
+    const loadProduct = async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/products?id=1");
-            const data = await response.json();
-            setProduct(data.product);
-            setPrice(data.price);
-            setCategory(data.category);
-            setAvailableCount(data.availableCount);
-            setProductSold(data.productSold);
+            const productData = await productsContext.getProductById(product.id);
+            setProduct(productData);
         } catch (error) {
-            console.error("Erro ao buscar produto:", error);
+            console.error("Erro ao carregar o produto", error);
         }
     };
+    
 
     useEffect(() => {
-        fetchProduct();
-    }, []);
+        loadProduct();
+    }, [product.id]);
 
     const handleQuestionSubmit = () => {
         if (newQuestion.trim()) {
@@ -38,27 +33,23 @@ const Product = () => {
     return (
         <div className="product-container">
             <div className="product-info">
-                <img id="product-image" src="/path/to/image.jpg" alt="Produto" />
+                <img id="product-image" src={product?.image_url} alt="Imagem do produto" />
                 <div className="product-details">
                     <div>
-                        <h1 id="product-name">{product}</h1>
-                        <div className="product-category">
-                            <img id="category-icon" src="/path/to/icon.jpg" alt="Categoria" />
-                            <span id="category-name">{category}</span>
-                        </div>
+                        <h1 id="product-name">{product?.name}</h1>
+                        <p>
+                            <span className="price" id="product-price">{product?.price}</span>
+                        </p>
                         <div className="product-stats">
                             <div className="stat">
                                 <span className="stat-title">DISPONÍVEIS </span>
-                                <span id="available-count" className="stat-value">{availableCount}</span>
+                                <span id="available-count" className="stat-value">{product?.stock_quantity}</span>
                             </div>
                             <div className="stat">
                                 <span className="stat-title">VENDIDOS </span>
-                                <span id="product-sold" className="stat-value">{productSold}</span>
+                                <span id="product-sold" className="stat-value">{product?.sold_quantity}</span>
                             </div>
                         </div>
-                        <p>
-                            <span className="price" id="product-price">{price}</span>
-                        </p>
                     </div>
                     <button className="buy-button">Comprar</button>
                     <button id="share-button" className="share-button">Compartilhar</button>
@@ -67,7 +58,7 @@ const Product = () => {
 
             <h2 className="desc-title">Descrição do Produto</h2>
             <div className="product-description">
-                <p id="product-description">Descrição do produto.</p>
+                <p id="product-description">{product?.description}</p>
             </div>
 
             <div className="product-questions">
