@@ -16,6 +16,21 @@ export const useApi = () => ({
     return response.data
   },
 
+  getProducts: async() => {
+    const response = await api.get('/api/products')
+    return response.data
+  },
+
+  getProductsById: async(id) => {
+    const response = await api.get(`/api/products?id=${id}`)
+    return response.data
+  },
+
+  getProductsByCategory: async(category) => {
+    const response = await api.get(`/api/products?category_id=${category}`)
+    return response.data
+  },
+
   getTopProducts: async() => {
     const response = await api.get('/api/products/top-rated')
     return response.data

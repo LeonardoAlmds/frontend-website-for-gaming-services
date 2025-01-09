@@ -38,8 +38,8 @@ export const ProductsProvider = ({ children }) => {
               products,
               topProducts,
               getProducts,
-              getTopProducts,
-              getProductById
+              getProductById,
+              getTopProducts
             }}
           >
               {children}

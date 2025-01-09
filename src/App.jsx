@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer'
 import Category from './pages/Category/Category'
 import Login from './pages/login'
 import { ProductsProvider } from './contexts/ProductsContext'
+import Product from './pages/Product/Product'
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
           <Route path='*' element={<h1>Not Found</h1>} />
           <Route path='/login' element={<Login />} />
 
+          <Route path='/product' element={<Product />} />
+          
           <Route 
             path='/category' 
             element={
