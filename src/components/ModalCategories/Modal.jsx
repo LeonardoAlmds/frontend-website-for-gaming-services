@@ -19,7 +19,7 @@ function Modal({ isOpen, setOpenModal, categories }) {
           <h2>Categorias</h2>
           <ul className="categories-list">
             {categories.map((category, index) => (
-              <button onClick={() => handleCategory(category)}><li key={index}><img className='category-icon' src={category.icon_url} alt="icon game" />{category.name}</li></button>
+              <button key={index} onClick={() => handleCategory(category)}><li key={index}><img className='category-icon' src={category.icon_url} alt="icon game" />{category.name}</li></button>
             ))}
           </ul>
         </div>

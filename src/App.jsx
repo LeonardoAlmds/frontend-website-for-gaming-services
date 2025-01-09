@@ -8,6 +8,7 @@ import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import Category from './pages/Category/Category'
 import Login from './pages/login'
+import { ProductsProvider } from './contexts/ProductsContext'
 
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
           <Route 
             path='/category' 
             element={
-              <Category />
+              <ProductsProvider>
+                <Category />
+              </ProductsProvider>
             }/>
         </Routes>
       </div>

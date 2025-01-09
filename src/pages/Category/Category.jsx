@@ -1,12 +1,33 @@
-import React from 'react';
+import { useState, useContext, useEffect } from 'react';
 import './Category.css'
 import { useLocation } from 'react-router-dom';
 import Products from '../../components/Products/Products';
-import { ProductsProvider } from '../../contexts/ProductsContext';
+import { ProductsContext } from '../../contexts/ProductsContext';
 
 const Category = () => {
+  const productsContext = useContext(ProductsContext);
+  const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState('')
+
   const location = useLocation();
   const { category } = location.state || {}; 
+
+  const loadProducts = async () => {
+    try {
+      const products = await productsContext.getProductById(category.id);
+      setProducts(Array.isArray(products) ? products : []);
+    } catch (error) {
+      console.error("Erro ao carregar a categoria", error);
+    }
+  };
+
+  const filteredProducts = products.filter(product => 
+    product.name.toLowerCase().includes(search.toLowerCase())
+  )
+
+  useEffect(() => {
+    loadProducts();
+  }, [category.id]);
 
   return (
     <div className="category-container">
@@ -18,11 +39,15 @@ const Category = () => {
 
       <a href="categories.html" className="category-btn">Ver todas as categorias</a>
 
-      <input className="product-search category-search" type="text" id="product-search" placeholder="Pesquisar produto..." />
+      <input 
+        className="product-search category-search" 
+        type="text" value={search} 
+        onChange={(e) => setSearch(e.target.value)} 
+        placeholder="Pesquisar produto..." 
+      />
 
-      <ProductsProvider>
-        <Products />
-      </ProductsProvider>
+      <Products products={filteredProducts}/>
+     
   </div>
   );
 }
