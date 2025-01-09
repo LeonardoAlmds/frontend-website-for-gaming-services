@@ -1,9 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Product.css";
 
 const Product = () => {
     const [questions, setQuestions] = useState([]);
     const [newQuestion, setNewQuestion] = useState("");
+    const [product, setProduct] = useState("");
+    const [price, setPrice] = useState("");
+    const [category, setCategory] = useState("");
+    const [availableCount, setAvailableCount] = useState("");
+    const [productSold, setProductSold] = useState("");
+
+    const fetchProduct = async () => {
+        try {
+            const response = await fetch("http://localhost:8080/api/products?id=1");
+            const data = await response.json();
+            setProduct(data.product);
+            setPrice(data.price);
+            setCategory(data.category);
+            setAvailableCount(data.availableCount);
+            setProductSold(data.productSold);
+        } catch (error) {
+            console.error("Erro ao buscar produto:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchProduct();
+    }, []);
 
     const handleQuestionSubmit = () => {
         if (newQuestion.trim()) {
@@ -18,23 +41,23 @@ const Product = () => {
                 <img id="product-image" src="/path/to/image.jpg" alt="Produto" />
                 <div className="product-details">
                     <div>
-                        <h1 id="product-name">Produto</h1>
+                        <h1 id="product-name">{product}</h1>
                         <div className="product-category">
                             <img id="category-icon" src="/path/to/icon.jpg" alt="Categoria" />
-                            <span id="category-name">Categoria</span>
+                            <span id="category-name">{category}</span>
                         </div>
                         <div className="product-stats">
                             <div className="stat">
                                 <span className="stat-title">DISPONÍVEIS </span>
-                                <span id="available-count" className="stat-value">35</span>
+                                <span id="available-count" className="stat-value">{availableCount}</span>
                             </div>
                             <div className="stat">
                                 <span className="stat-title">VENDIDOS </span>
-                                <span id="product-sold" className="stat-value">2260</span>
+                                <span id="product-sold" className="stat-value">{productSold}</span>
                             </div>
                         </div>
                         <p>
-                            <span className="price" id="product-price">R$ 0.00</span>
+                            <span className="price" id="product-price">{price}</span>
                         </p>
                     </div>
                     <button className="buy-button">Comprar</button>

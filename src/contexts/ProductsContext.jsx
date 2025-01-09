@@ -16,6 +16,14 @@ export const ProductsProvider = ({ children }) => {
       }
     }
 
+    const getProductById = async (id) => {
+      if (!products) {
+        const data = await api.getProductsById(id);
+        setProducts(data);
+        return data
+      }
+    }
+
     const getTopProducts = async () => {
       if (!topProducts) {
         const data = await api.getTopProducts();
@@ -30,6 +38,7 @@ export const ProductsProvider = ({ children }) => {
               products,
               topProducts,
               getProducts,
+              getProductById,
               getTopProducts
             }}
           >
