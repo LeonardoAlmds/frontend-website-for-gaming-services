@@ -31,12 +31,19 @@ const Products = ({ products }) => {
 
   return (
     <div className="products">
+      {products.length === 0 && (
+        <div className="no-products-message">
+          <p>Nenhum produto com esse nome cadastrado no momento.</p>
+        </div>
+      )}
+
       <div className="grid-container">
         {products.slice(0, itemsToShow).map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
       </div>
-      {itemsToShow < products.length && (
+
+      {itemsToShow < products.length && products.length > 0 && (
         <div className="ver-mais-div">
           <hr />
           <button className="ver-mais" onClick={handleShowMore}>
