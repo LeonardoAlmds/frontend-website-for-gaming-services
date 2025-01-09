@@ -8,6 +8,7 @@ import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import Category from './pages/Category/Category'
 import Login from './pages/login'
+import Product from './pages/Product/Product'
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
           <Route path='/login' element={<Login />} />
 
           <Route path='/category' element={<Category />} />
+
+          <Route path='/product' element={<Product />} />
         </Routes>
       </div>
 
