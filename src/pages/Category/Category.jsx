@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import './Category.css'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Products from '../../components/Products/Products';
 import { ProductsContext } from '../../contexts/ProductsContext';
 
@@ -37,7 +37,7 @@ const Category = () => {
           <p id="category-description">Compra e venda de services.</p>
       </div>  
 
-      <a href="categories.html" className="category-btn">Ver todas as categorias</a>
+      <Link to={'/categories'} className="category-btn">Ver todas as categorias</Link>
 
       <input 
         className="product-search category-search" 

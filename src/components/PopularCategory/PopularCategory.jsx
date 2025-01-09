@@ -39,7 +39,7 @@ const PopularCategory = () => {
         ))}
       </div>
       <div className="view-all">
-        <a href="/categories.html">Ver todas categorias</a>
+        <Link to={'/categories'}>Ver todas categorias</Link>
       </div>
     </div>
   );

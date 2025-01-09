@@ -10,6 +10,7 @@ import Category from './pages/Category/Category'
 import Login from './pages/login'
 import { ProductsProvider } from './contexts/ProductsContext'
 import Product from './pages/Product/Product'
+import Categories from './pages/Categories/Categories'
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
               </ProductsProvider>
             }/>
           
+          <Route path='/categories' element={<Categories />} />
+
           <Route 
             path='/category' 
             element={
