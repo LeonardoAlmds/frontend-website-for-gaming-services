@@ -33,7 +33,13 @@ function App() {
               </ProductsProvider>
             }/>
           
-          <Route path='/categories' element={<Categories />} />
+          <Route 
+            path='/categories' 
+            element={
+            <CategoriesProvider>
+              <Categories />
+            </CategoriesProvider>
+            }/>
 
           <Route 
             path='/category' 

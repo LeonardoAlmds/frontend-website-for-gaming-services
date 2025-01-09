@@ -34,11 +34,9 @@ export const ProductsProvider = ({ children }) => {
     }
 
     const getProductByCategoryId = async (categoryId) => {
-      if (!products) {
-        const data = await api.getProductByCategoryId(categoryId);
-        setProducts(data);
-        return data
-      }
+      const data = await api.getProductByCategoryId(categoryId);
+      setProducts(data);
+      return data
     }
 
   return (
