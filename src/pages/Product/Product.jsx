@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import "./Product.css";
 
 const Product = () => {
-		const productsContext = useContext(ProductsContext)
 		const [questions, setQuestions] = useState([]);
 		const [newQuestion, setNewQuestion] = useState("");
 		const [productAt, setProductAt] = useState([])
