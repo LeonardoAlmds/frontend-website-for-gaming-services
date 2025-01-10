@@ -3,8 +3,11 @@ import { ProductsContext } from "../../contexts/ProductsContext"
 import { useLocation } from "react-router-dom";
 
 import "./Product.css";
+import { CategoriesContext } from "../../contexts/CategoriesContext";
 
 const Product = () => {
+		const categoryContext = useContext(CategoriesContext)
+		const [category, setCategory] = useState()
 		const [questions, setQuestions] = useState([]);
 		const [newQuestion, setNewQuestion] = useState("");
 		const [productAt, setProductAt] = useState([])
@@ -12,17 +15,27 @@ const Product = () => {
 		const location = useLocation();
 		const { product } = location.state || {};
 
+		const loadCategory = async (categoryId) => {
+			try {
+				const category = await categoryContext.getCategoryById(categoryId);
+				setCategory(category);
+			} catch (error) {
+				console.error("Erro ao carregar a categoria", error);
+			}
+		}
+
 		useEffect(() => {
 			setProductAt(product)
+			loadCategory(product.category_id)
 		}, [])
-
+	
 		const handleQuestionSubmit = () => {
 			if (newQuestion.trim()) {
 					setQuestions([...questions, newQuestion]);
 					setNewQuestion("");
 			}
 	};
-
+	
 		return (
 			<div className="product-container">
 				<div className="product-info">
@@ -30,9 +43,14 @@ const Product = () => {
 					<div className="product-details">
 						<div>
 							<h1 id="product-name">{productAt.name}</h1>
-							<p>
-								<span className="price" id="product-price">{productAt.price}</span>
-							</p>
+
+							{category && (
+								<div className="product-category">
+									<img src={category.icon_url} alt="Categoria" />
+									<span>{category.name}</span>
+								</div>
+							)}
+
 							<div className="product-stats">
 								<div className="stat">
 									<span className="stat-title">DISPONÍVEIS </span>
@@ -43,6 +61,10 @@ const Product = () => {
 									<span id="product-sold" className="stat-value">{productAt.sold_quantity}</span>
 								</div>
 							</div>
+
+							<p>
+								<span className="price" id="product-price">{'R$ ' + productAt.price}</span>
+							</p>
 						</div>
 						<button className="buy-button">Comprar</button>
 						<button id="share-button" className="share-button">Compartilhar</button>

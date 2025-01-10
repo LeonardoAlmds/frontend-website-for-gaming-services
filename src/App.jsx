@@ -32,9 +32,9 @@ function App() {
           <Route 
             path='/product'
             element={ 
-              <ProductsProvider>
+              <CategoriesProvider>
                 <Product />
-              </ProductsProvider>
+              </CategoriesProvider>
             }/>
           
           <Route 

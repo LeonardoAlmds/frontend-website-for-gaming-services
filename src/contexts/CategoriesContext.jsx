@@ -6,6 +6,7 @@ export const CategoriesContext = createContext();
 export const CategoriesProvider = ({ children }) => {
     const [categories, setCategories] = useState();
     const [topCategories, setTopCategories] = useState()
+    const [category, setCategory] = useState()
     const api = useApi();
 
     const getCategories = async () => {
@@ -24,13 +25,21 @@ export const CategoriesProvider = ({ children }) => {
       }
     }
 
+    const getCategoryById = async (id) => {
+      const data = await api.getCategoryById(id)
+      setCategory(data)
+      return data
+    }
+
   return (
           <CategoriesContext.Provider 
           value={{
+            category,
             categories,
             topCategories,
             getCategories,
-            getTopCategories
+            getTopCategories,
+            getCategoryById
           }}
           >
               {children}
