@@ -36,3 +36,9 @@
   padding: 6px 12px;
   margin: 30px 0 15px;
 }
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+

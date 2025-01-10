@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 import "./Product.css";
 
 import { ProductsContext } from "../../contexts/ProductsContext";
 
 const Product = () => {
+    const { id } = useParams();
     const productsContext = useContext(ProductsContext);
     const [questions, setQuestions] = useState([]);
     const [newQuestion, setNewQuestion] = useState("");
@@ -11,7 +13,7 @@ const Product = () => {
 
     const loadProduct = async () => {
         try {
-            const productData = await productsContext.getProductById(product.id);
+            const productData = await productsContext.getProductById(id);
             setProduct(productData);
         } catch (error) {
             console.error("Erro ao carregar o produto", error);
@@ -20,8 +22,9 @@ const Product = () => {
     
 
     useEffect(() => {
+        setProduct(null); // Limpa o estado do produto anterior
         loadProduct();
-    }, [product.id]);
+    }, [id]);
 
     const handleQuestionSubmit = () => {
         if (newQuestion.trim()) {
@@ -30,7 +33,7 @@ const Product = () => {
         }
     };
 
-    return (
+    return product ? (
         <div className="product-container">
             <div className="product-info">
                 <img id="product-image" src={product?.image_url} alt="Imagem do produto" />
@@ -81,6 +84,8 @@ const Product = () => {
                 </div>
             </div>
         </div>
+    ) : (
+        <h1>Carregando...</h1>
     );
 };
 
