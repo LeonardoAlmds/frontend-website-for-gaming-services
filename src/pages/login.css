@@ -27,9 +27,14 @@
     text-decoration: none;
 }
 
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
 .forgot-password {
     font-size: 12px;
-    margin: 10px 0;
     text-decoration: none;
     color: var(--blue-primary);
 }
@@ -53,7 +58,7 @@
 .social-login div button {
     width: 40px;
     height: 40px;
-    margin: 0 10px;
+    margin: 0 5px;
     padding: 10px;
     border-radius:35%;
     border: 1px solid var(--border-color);

@@ -62,9 +62,14 @@ const login = () => {
                 onSubmit={handleSubmit}
                 button="Entrar"
             />
-            <Link to="/forgot-password" className="forgot-password">
-                <h3>Esqueceu a senha?</h3>
-            </Link>
+
+            <div className='login-options'>
+                <Link to="/forgot-password" className="forgot-password">
+                    <h3>Esqueceu a senha?</h3>
+                </Link>
+
+                <h4>Não tem uma conta? <Link to="/signup">Cadastre-se</Link></h4>
+            </div>
 
             <h4>Ao logar, você concorda com nossos <Link to="/terms">Termos de Uso</Link> e <Link to="/privacy">Política de Privacidade</Link>.</h4>
 

@@ -22,7 +22,7 @@ const Product = () => {
     
 
     useEffect(() => {
-        setProduct(null); // Limpa o estado do produto anterior
+        setProduct(null);
         loadProduct();
     }, [id]);
 
