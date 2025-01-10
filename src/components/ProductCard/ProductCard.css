@@ -1,3 +1,7 @@
+.card-link {
+  border: none;
+}
+
 .card {
   display: flex;
   flex-direction: column;

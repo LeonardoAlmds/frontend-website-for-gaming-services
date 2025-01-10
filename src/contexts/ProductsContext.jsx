@@ -26,11 +26,9 @@ export const ProductsProvider = ({ children }) => {
     }
 
     const getProductById = async (id) => {
-      if (!product) {
-        const data = await api.getProductById(id);
-        setProduct(data);
-        return data
-      }
+      const data = await api.getProductById(id);
+      setProduct(data)
+      return data
     }
 
     const getProductByCategoryId = async (categoryId) => {
