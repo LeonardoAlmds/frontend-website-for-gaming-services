@@ -13,9 +13,9 @@ const Product = () => {
 		const location = useLocation();
 		const { product } = location.state || {};
 
-    useEffect(() => {
-        setProductAt(product)
-    }, [])
+		useEffect(() => {
+			setProductAt(product)
+		}, [])
 
 		const handleQuestionSubmit = () => {
 			if (newQuestion.trim()) {
@@ -24,7 +24,6 @@ const Product = () => {
 			}
 	};
 
-		console.log(productAt)
 		return (
 			<div className="product-container">
 				<div className="product-info">
@@ -56,27 +55,27 @@ const Product = () => {
             <p id="product-description">{product?.description}</p>
         </div>
 
-        <div className="product-questions">
-					<div className="content-questions">
-						<h2>Perguntas</h2>
-						<div id="questions-list">
-							{questions.map((question, index) => (
-									<p key={index} className="question-item">{question}</p>
-							))}
-						</div>
-						<div className="ask-question">
-							<textarea
-									id="new-question"
-									placeholder="Faça sua pergunta..."
-									value={newQuestion}
-									onChange={(e) => setNewQuestion(e.target.value)}
-							/>
-							<button id="ask-question-btn" onClick={handleQuestionSubmit}>Perguntar</button>
-						</div>
-					</div>
+            <div className="product-questions">
+                <div className="content-questions">
+                    <h2>Perguntas</h2>
+                    <div id="questions-list">
+                        {questions.map((question, index) => (
+                            <p key={index} className="question-item">{question}</p>
+                        ))}
+                    </div>
+                    <div className="ask-question">
+                        <textarea
+                            id="new-question"
+                            placeholder="Faça sua pergunta..."
+                            value={newQuestion}
+                            onChange={(e) => setNewQuestion(e.target.value)}
+                        />
+                        <button id="ask-question-btn" onClick={handleQuestionSubmit}>Perguntar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-			</div>
-		)
-}
+    )
+};
 
 export default Product
