@@ -1,162 +1,130 @@
 .product-container {
     display: flex;
     flex-direction: column;
-    margin: 40px auto;
+    margin: 60px auto;
     border-radius: 8px;
-    max-width: 1200px;
-    padding: 20px;
-    background-color: var(--background-primary);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.product-info {
+  }
+  
+  .product-info {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 40px;
-}
-
-.product-info img {
-    width: 50%;
-    max-width: 200px;
+  }
+  
+  .product-info img {
+    width: 500px;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product-details {
+  }
+  
+  .product-details {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-grow: 1;
-    gap: 20px;
-}
-
-.product-details h1 {
+  }
+  
+  .product-details h1 {
     color: var(--font-category-title);
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.product-category {
+  }
+  
+  .product-category {
     display: flex;
     align-items: center;
     gap: 10px;
     font-weight: 600;
     font-size: 14px;
     color: var(--color-font);
-}
-
-.product-category img {
+  }
+  
+  .product-category img {
     width: 20px;
-    height: 20px;
-}
-
-.product-stats {
+    height: auto;
+  }
+  
+  .product-stats {
     display: flex;
     gap: 20px;
     margin: 20px 0;
-    flex-wrap: wrap;
-}
-
-.stat {
+  }
+  
+  .stat {
     text-align: center;
-    flex: 1;
-    min-width: 120px;
-}
-
-.stat-title {
+    margin-bottom: 25px;
+  }
+  
+  .stat-title {
     font-size: 12px;
     font-weight: 600;
     color: var(--color-font);
-}
-
-.stat-value {
+  }
+  
+  .stat-value {
     font-size: 18px;
     font-weight: bold;
     color: var(--font-category-title);
-}
-
-.price {
+  }
+  
+  .price {
     font-size: 24px;
     font-weight: 700;
     color: var(--font-category-title);
-    margin-top: 10px;
-}
-
-.buy-button,
-.share-button {
+  }
+  
+  .buy-button {
     padding: 10px 20px;
+    background-color: var(--blue-primary);
+    color: white;
     font-size: 16px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.buy-button {
-    background-color: var(--blue-primary);
-    color: white;
-}
-
-.buy-button:hover {
+  }
+  
+  .buy-button:hover {
     background-color: var(--blue-hover);
-}
-
-.share-button {
-    background-color: #017e63;
-    color: white;
-}
-
-.share-button:hover {
-    background-color: #009171;
-}
-
-.desc-title {
+  }
+  
+  .desc-title {
     margin-bottom: 20px;
     color: var(--font-category-title);
-    font-size: 20px;
-}
-
-.product-description {
+  }
+  
+  .product-description {
     border: 1px solid var(--border-search-category);
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     font-weight: 600;
     max-width: 800px;
     color: var(--color-font);
-    background-color: var(--background-secondary);
-}
-
-.product-questions {
+  }
+  
+  .product-questions {
     margin-top: 30px;
     background-color: var(--background-questions);
     padding: 30px;
     border-radius: 10px;
-}
-
-.content-questions {
+  }
+  
+  .content-questions {
     max-width: 800px;
-    margin: auto;
-}
-
-.product-questions h2 {
+  }
+  
+  .product-questions h2 {
     font-size: 24px;
     margin-bottom: 20px;
     color: var(--font-category-title);
-    text-align: center;
-}
-
-.ask-question {
+  }
+  
+  .ask-question {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
-}
-
-.ask-question textarea {
+  }
+  
+  .ask-question textarea {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid var(--border-search-category);
@@ -167,10 +135,9 @@
     background-color: var(--question-color);
     color: var(--font-category-title);
     font-weight: 500;
-    outline: none;
-}
-
-.ask-question button {
+  }
+  
+  .ask-question button {
     padding: 10px;
     border: none;
     background-color: var(--blue-primary);
@@ -179,51 +146,44 @@
     cursor: pointer;
     border-radius: 8px;
     font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.ask-question button:hover {
+  }
+  
+  .ask-question button:hover {
     background-color: var(--blue-hover);
-}
-
-#questions-list {
+  }
+  
+  #questions-list {
     margin-top: 20px;
-}
-
-.question {
+  }
+  
+  .question {
     background-color: var(--question-color);
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 8px;
     color: var(--font-category-title);
     border: 1px solid var(--border-search-category);
-}
-
-.question-answer {
+  }
+  
+  .question-answer {
     margin-top: 10px;
     background-color: var(--question-answer);
     padding: 8px;
     border-radius: 6px;
-}
-
-@media (max-width: 768px) {
-    .product-info {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-details {
-        align-items: center;
-        text-align: center;
-    }
-
-    .product-stats {
-        justify-content: center;
-    }
-
-    .buy-button,
-    .share-button {
-        width: 100%;
-        text-align: center;
-    }
-}
+  }
+  
+  .share-button {
+    padding: 10px;
+    border: none;
+    background-color: #017e63;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  
+  .share-button:hover {
+    background-color: #009171;
+  }
+  
