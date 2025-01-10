@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./Product.css";
 
 import { ProductsContext } from "../../contexts/ProductsContext";
+import Loading from "../../components/Loading/Loading";
 
 const Product = () => {
     const { id } = useParams();
@@ -85,7 +86,7 @@ const Product = () => {
             </div>
         </div>
     ) : (
-        <h1>Carregando...</h1>
+        <Loading />
     );
 };
 
