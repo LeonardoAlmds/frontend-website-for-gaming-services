@@ -9,6 +9,7 @@ import { useEffect, useContext, useState } from 'react';
 import Modal from '../ModalCategories/Modal';
 import { CategoriesContext } from '../../contexts/CategoriesContext';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import ListSearchProducts from '../SearchProducts/ListSearchProducts';
 
 const Navbar = () => {
   const categoriesContext = useContext(CategoriesContext);
@@ -18,11 +19,12 @@ const Navbar = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [openModal, setOpenModal] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const loadCategories = async () => {
     try {
-      await categoriesContext.getCategories();
-      setCategories(Array.isArray(categoriesContext.categories) ? categoriesContext.categories : []);
+      const category = await categoriesContext.getCategories();
+      setCategories(Array.isArray(category) ? category : []);
     } catch (error) {
       console.error('Erro ao carregar as categorias:', error);
     }
@@ -40,20 +42,23 @@ const Navbar = () => {
   const handleSearch = (event) => {
     const term = event.target.value.toLowerCase();
     setSearchTerm(term);
-    const filteredProducts = products.filter(product =>
-      product.name.toLowerCase().includes(term)
-    );
-    console.log('Produtos encontrados:', filteredProducts);
+  
+    if (term === '') {
+      setFilteredProducts([]);
+    } else {
+      const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(term)
+      );
+      setFilteredProducts(filtered);
+      console.log('Produtos encontrados:', filtered);
+    }
   };
-
-  useEffect(() => {
-    loadCategories();
-  }, []);
+  
 
   useEffect(() => {
     loadCategories();
     loadProducts();
-  }, [openModal]);
+  }, []);
 
   return (
     <>
@@ -72,7 +77,10 @@ const Navbar = () => {
         </div>
 
         <nav className='navigation'>
-          <button className='categories' onClick={() => { setOpenModal(!openModal); }}>
+          <button
+            className='categories'
+            onClick={() => setOpenModal(!openModal)}
+          >
             Categorias <IoIosArrowDown />
           </button>
           <button id='about'>Sobre</button>
@@ -81,6 +89,8 @@ const Navbar = () => {
           <button className='icon-btn'><GiHamburgerMenu /></button>
         </nav>
       </div>
+
+      <ListSearchProducts products={filteredProducts} categories={categories} />
 
       <Modal isOpen={openModal} setOpenModal={setOpenModal} categories={categories} />
     </>
