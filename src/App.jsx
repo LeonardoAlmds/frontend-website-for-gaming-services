@@ -18,8 +18,11 @@ function App() {
   return (
     <>
       <CategoriesProvider>
-        <Navbar />
+        <ProductsProvider>
+          <Navbar />
+        </ProductsProvider>
       </CategoriesProvider>
+      
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
