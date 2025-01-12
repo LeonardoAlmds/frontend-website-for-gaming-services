@@ -3,6 +3,7 @@ import './Category.css'
 import { Link, useLocation } from 'react-router-dom';
 import Products from '../../components/Products/Products';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import Loading from '../../components/Loading/Loading';
 
 const Category = () => {
   const productsContext = useContext(ProductsContext);
@@ -29,7 +30,7 @@ const Category = () => {
     loadProducts();
   }, [category.id]);
 
-  return (
+  return category ? (
     <div className="category-container">
       <img id="category-image" src={category.icon_url} alt="Categoria" />
       <div>
@@ -48,7 +49,9 @@ const Category = () => {
 
       <Products products={filteredProducts}/>
   </div>
-  );
+  ) : (
+    <Loading />
+  )
 }
 
 export default Category

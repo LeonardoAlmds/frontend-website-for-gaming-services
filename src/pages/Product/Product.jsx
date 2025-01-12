@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from "react"
-import { ProductsContext } from "../../contexts/ProductsContext"
+import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom";
+
+import Loading from "../../components/Loading/Loading";
 
 import "./Product.css";
 
@@ -23,7 +24,7 @@ const Product = () => {
 			}
 	};
 
-		return (
+		return productAt ? (
 			<div className="product-container">
 				<div className="product-info">
 					<img id="product-image" src={productAt.image_url} alt="Imagem do produto" />
@@ -74,7 +75,9 @@ const Product = () => {
                 </div>
             </div>
         </div>
-    )
+    ) : (
+		<Loading/>
+	);
 };
 
 export default Product
