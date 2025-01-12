@@ -74,6 +74,7 @@ const Navbar = () => {
             value={searchTerm}
             onChange={handleSearch}
           />
+          <ListSearchProducts products={filteredProducts} categories={categories} />
         </div>
 
         <nav className='navigation'>
@@ -89,8 +90,6 @@ const Navbar = () => {
           <button className='icon-btn'><GiHamburgerMenu /></button>
         </nav>
       </div>
-
-      <ListSearchProducts products={filteredProducts} categories={categories} />
 
       <Modal isOpen={openModal} setOpenModal={setOpenModal} categories={categories} />
     </>
