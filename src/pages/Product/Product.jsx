@@ -12,6 +12,7 @@ const Product = () => {
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState("");
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true); // Adicionando o estado de loading
 
   const location = useLocation();
 
@@ -22,6 +23,13 @@ const Product = () => {
       setProduct(currentProduct);
       loadCategory(currentProduct.category_id);
     }
+
+    // Definindo o tempo de carregamento de 2 segundos
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer); // Limpar o timer quando o componente for desmontado
   }, [location.state]);
 
   const loadCategory = async (categoryId) => {
@@ -39,6 +47,10 @@ const Product = () => {
       setNewQuestion("");
     }
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return product ? (
     <div className="product-container">
