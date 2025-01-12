@@ -14,7 +14,7 @@ const Home = () => {
     // Simula um atraso de 500ms antes de remover o loading
     const timer = setTimeout(() => {
       setLoading(false);  // Após 500ms, remove o loading
-    }, 500);
+    }, 400);
 
     // Limpeza do timer caso o componente seja desmontado
     return () => clearTimeout(timer);
