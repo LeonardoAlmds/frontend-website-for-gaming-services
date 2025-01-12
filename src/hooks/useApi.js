@@ -16,6 +16,11 @@ export const useApi = () => ({
     return response.data
   },
 
+  getCategoryById: async(id) => {
+    const response = await api.get(`/api/categories?id=${id}`)
+    return response.data
+  },
+
   getProducts: async() => {
     const response = await api.get('/api/products')
     return response.data

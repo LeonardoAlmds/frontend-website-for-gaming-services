@@ -12,14 +12,18 @@ import Login from './pages/login'
 import { ProductsProvider } from './contexts/ProductsContext'
 import Product from './pages/Product/Product'
 import Categories from './pages/Categories/Categories'
+import ListSearchProducts from './components/SearchProducts/ListSearchProducts'
 
 
 function App() {
   return (
     <>
       <CategoriesProvider>
-        <Navbar />
+        <ProductsProvider>
+          <Navbar />
+        </ProductsProvider>
       </CategoriesProvider>
+
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
@@ -32,9 +36,9 @@ function App() {
           <Route 
             path='/product'
             element={ 
-              <ProductsProvider>
+              <CategoriesProvider>
                 <Product />
-              </ProductsProvider>
+              </CategoriesProvider>
             }/>
           
           <Route 
