@@ -6,6 +6,7 @@ const ProductCard = ({ product }) => {
 
   const handleClick = (product) => {
     navigate("/product", { state: { product } });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (

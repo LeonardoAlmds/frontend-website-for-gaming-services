@@ -42,18 +42,21 @@ const Navbar = () => {
   const handleSearch = (event) => {
     const term = event.target.value.toLowerCase();
     setSearchTerm(term);
-  
+
     if (term === '') {
       setFilteredProducts([]);
     } else {
-      const filtered = products.filter(product =>
+      const filtered = products.filter((product) =>
         product.name.toLowerCase().includes(term)
       );
       setFilteredProducts(filtered);
-      console.log('Produtos encontrados:', filtered);
     }
   };
-  
+
+  const resetSearch = () => {
+    setSearchTerm(''); // Reseta o campo de busca
+    setFilteredProducts([]); // Fecha a lista de resultados
+  };
 
   useEffect(() => {
     loadCategories();
@@ -62,36 +65,53 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='content-navbar'>
-        <Link to='/'><img src={Logo} alt='Logo K+' /></Link>
+      <div className="content-navbar">
+        <Link to="/">
+          <img src={Logo} alt="Logo K+" />
+        </Link>
 
-        <div className='search-bar'>
+        <div className="search-bar">
           <FaSearch />
           <input
-            type='text'
-            id='search-input'
-            placeholder='Anúncio, usuário ou categoria'
+            type="text"
+            id="search-input"
+            placeholder="Anúncio, usuário ou categoria"
             value={searchTerm}
             onChange={handleSearch}
+            autoComplete="off"
           />
-          <ListSearchProducts products={filteredProducts} categories={categories} />
+          <ListSearchProducts
+            products={filteredProducts}
+            categories={categories}
+            onProductClick={resetSearch} // Passa a função para resetar a busca
+          />
         </div>
 
-        <nav className='navigation'>
+        <nav className="navigation">
           <button
-            className='categories'
+            className="categories"
             onClick={() => setOpenModal(!openModal)}
           >
             Categorias <IoIosArrowDown />
           </button>
-          <button id='about'>Sobre</button>
-          <button className='highlight-btn' id='announce-btn'>Anunciar</button>
-          <button className='icon-btn'><FaShoppingCart /></button>
-          <button className='icon-btn'><GiHamburgerMenu /></button>
+          <button id="about">Sobre</button>
+          <button className="highlight-btn" id="announce-btn">
+            Anunciar
+          </button>
+          <button className="icon-btn">
+            <FaShoppingCart />
+          </button>
+          <button className="icon-btn">
+            <GiHamburgerMenu />
+          </button>
         </nav>
       </div>
 
-      <Modal isOpen={openModal} setOpenModal={setOpenModal} categories={categories} />
+      <Modal
+        isOpen={openModal}
+        setOpenModal={setOpenModal}
+        categories={categories}
+      />
     </>
   );
 };
