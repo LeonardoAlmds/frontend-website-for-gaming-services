@@ -7,40 +7,48 @@ const api = axios.create({
 export const useApi = () => ({
   
   getCategories: async() => {
-    const response = await api.get('/api/categories')
+    const response = await api.get('/categories/get-all', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
     return response.data
   },
 
-  getTopCategories: async() => {
-    const response = await api.get('/api/categories/top')
+  getCategoryById: async (id, token) => {
+    const response = await api.get(`/categories/id/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
     return response.data
-  },
-
-  getCategoryById: async(id) => {
-    const response = await api.get(`/api/categories?id=${id}`)
-    return response.data
-  },
+  },  
 
   getProducts: async() => {
-    const response = await api.get('/api/products')
+    const response = await api.get('/products/get-all', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
     return response.data
   },
 
-  getTopProducts: async() => {
-    const response = await api.get('/api/products/top-rated')
+  getProductById: async (id, token) => {
+    const response = await api.get(`/products/id/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
     return response.data
   },
 
-  getProductById: async(id) => {
-    const response = await api.get(`/api/products?id=${id}`)
-    console.log(response.data)
+  getProductByCategoryId: async(categoryId, token) => {
+    const response = await api.get(`/products/category/${categoryId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
     return response.data
-  },
-
-  getProductByCategoryId: async(categoryId) => {
-    console.log('hook' + categoryId)
-    const response = await api.get('/api/products?category_id='+ categoryId)
-    return response.data
-  },
+  }
 
 })
