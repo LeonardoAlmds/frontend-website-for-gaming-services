@@ -59,6 +59,18 @@
   margin-left: 5px;
 }
 
+.category-item.placeholder {
+  background-color: #f0f0f0;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 @media (max-width: 1150px) {
   .category-item {
     width: 150px;
