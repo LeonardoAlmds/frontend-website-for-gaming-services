@@ -3,7 +3,7 @@
     width: 40%;
     margin: 0 auto;
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px;
     flex-direction: column;
     background-color: var(--background-modal-option);
     color: var(--color-font);
@@ -22,7 +22,11 @@
     margin: 0 0 10px 0;
 }
 
-.login-container h4 a {
+.login-container h5 {
+    font-size: 9px;
+}
+
+.login-container a {
     color: var(--blue-primary);
     text-decoration: none;
 }
@@ -52,7 +56,7 @@
 
 .social-login div {    
     text-align: center;
-    margin: 0 10px 0;
+    margin: 0 10px 10px;
 }
 
 .social-login div button {

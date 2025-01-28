@@ -71,8 +71,6 @@ const login = () => {
                 <h4>Não tem uma conta? <Link to="/signup">Cadastre-se</Link></h4>
             </div>
 
-            <h4>Ao logar, você concorda com nossos <Link to="/terms">Termos de Uso</Link> e <Link to="/privacy">Política de Privacidade</Link>.</h4>
-
             <div className="social-login">
                 <div>
                     <button>
@@ -100,7 +98,7 @@ const login = () => {
                 </div>
             </div>
 
-            <h4>K+ é protegido por reCAPTCHA e está sujeito à <Link to="/Politcs">Política de Privacidade</Link> e aos <Link to="/Terms">Termos de Serviço</Link> do Google.</h4>
+            <h5>K+ é protegido por reCAPTCHA e está sujeito à <Link to="/Politcs">Política de Privacidade</Link> e aos <Link to="/Terms">Termos de Serviço</Link> do Google.</h5>
         </div>
     );
 };
