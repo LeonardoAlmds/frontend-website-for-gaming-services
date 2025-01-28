@@ -12,6 +12,7 @@ import Login from './pages/Login/login'
 import { ProductsProvider } from './contexts/ProductsContext'
 import Product from './pages/Product/Product'
 import Categories from './pages/Categories/Categories'
+import Error from './pages/Error/Error'
 import ListSearchProducts from './components/SearchProducts/ListSearchProducts'
 
 
@@ -32,6 +33,8 @@ function App() {
           <Route path='/signup' element={<Singup />} />
 
           <Route path='/login' element={<Login />} />
+
+          <Route path='/error' element={<Error/>} />
 
           <Route 
             path='/product'

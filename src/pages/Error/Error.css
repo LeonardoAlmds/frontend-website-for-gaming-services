@@ -1,0 +1,27 @@
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+}
+
+.error-icon {
+    font-size: 5rem;
+    color: var(--blue-primary);
+    transition: 0.2s ease-in-out;
+}
+
+.error-icon:hover {
+    color: var(--blue-hover);
+}
+
+.error-container h1 {
+    font-size: 2rem;
+    color: var(--search-color)
+}
+
+.error-container p {
+    font-size: 1rem;
+    color: var(--color-font)
+}
