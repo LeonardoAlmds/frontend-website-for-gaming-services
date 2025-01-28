@@ -3,8 +3,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 90px;
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 1);
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+  transition: box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.content-navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {

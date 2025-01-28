@@ -48,9 +48,18 @@ const Featured = () => {
     <div className="featured">
       <h2 id="title-featured">Em Destaque</h2>
       <div className="grid-container">
-        {topProducts.slice(0, itemsToShow).map((product, index) => (
-          <ProductCard key={index} product={product} />
-        ))}
+        {
+          topProducts && topProducts.length > 0 ? (
+            topProducts.slice(0, itemsToShow).map((product, index) => (
+              <ProductCard key={index} product={product} />
+          ))) : (
+          
+            Array.from({ length: 12 }).map((_, index) => (
+              <div className="empty-card">
+                <p>Aqui estarão os produtos melhores avaliados</p>
+              </div>
+          )))
+        }
       </div>
       {itemsToShow < topProducts.length && (
         <div className="ver-mais-div">

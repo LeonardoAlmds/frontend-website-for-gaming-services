@@ -45,7 +45,6 @@ const PopularCategory = () => {
             </div>
           ))
         )}
-
       </div>
       <div className="view-all">
         <Link to={'/categories'}>Ver todas categorias</Link>

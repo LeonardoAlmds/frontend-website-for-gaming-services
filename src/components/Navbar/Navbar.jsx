@@ -10,6 +10,7 @@ import Modal from '../ModalCategories/Modal';
 import { CategoriesContext } from '../../contexts/CategoriesContext';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import ListSearchProducts from '../SearchProducts/ListSearchProducts';
+import ModalMenu from '../ModalMenu/ModalMenu';
 
 const Navbar = () => {
   const categoriesContext = useContext(CategoriesContext);
@@ -19,7 +20,9 @@ const Navbar = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [openModal, setOpenModal] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const loadCategories = async () => {
     try {
@@ -63,9 +66,37 @@ const Navbar = () => {
     loadProducts();
   }, []);
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      const menuButton = document.querySelector('.icon-btn');
+      const menu = document.querySelector('.modal-menu');
+
+      if (
+        openMenu &&
+        menu &&
+        !menu.contains(event.target) &&
+        !menuButton.contains(event.target)
+      ) {
+        setOpenMenu(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Define como "rolado" se a posição Y for maior que 50px
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [openMenu]);
+
   return (
     <>
-      <div className="content-navbar">
+      <div className={`content-navbar ${isScrolled ? 'scrolled' : ''}`}>
         <Link to="/">
           <img src={Logo} alt="Logo K+" />
         </Link>
@@ -83,7 +114,7 @@ const Navbar = () => {
           <ListSearchProducts
             products={filteredProducts}
             categories={categories}
-            onProductClick={resetSearch} // Passa a função para resetar a busca
+            onProductClick={resetSearch}
           />
         </div>
 
@@ -101,7 +132,7 @@ const Navbar = () => {
           <button className="icon-btn">
             <FaShoppingCart />
           </button>
-          <button className="icon-btn">
+          <button className="icon-btn" onClick={() => setOpenMenu(!openMenu)}>
             <GiHamburgerMenu />
           </button>
         </nav>
@@ -112,6 +143,8 @@ const Navbar = () => {
         setOpenModal={setOpenModal}
         categories={categories}
       />
+
+      <ModalMenu isOpen={openMenu} />
     </>
   );
 };

@@ -1,0 +1,63 @@
+.modal-menu {
+  position: fixed;
+  top: 80px;
+  right: 95px;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  animation: slideDown 0.4s ease-out forwards;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+}
+
+.modal-menu.hidden {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.modal-menu button {
+  cursor: pointer;
+  padding: 18px 45px;
+  background-color: transparent;
+  border: none;
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-font);
+  font-size: 15px;
+  border-top: none;
+  border-bottom: 1px solid var(--background-modal-option);
+  transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box;
+}
+
+.modal-menu button:last-child {
+  border-bottom: none; 
+}
+
+.modal-menu button:hover {
+  background-color: #f9f9f9;
+  color: var(--blue-primary);
+}

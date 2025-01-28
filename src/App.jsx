@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 
 import Navbar from './components/Navbar/Navbar'
@@ -14,15 +14,20 @@ import Product from './pages/Product/Product'
 import Categories from './pages/Categories/Categories'
 import ListSearchProducts from './components/SearchProducts/ListSearchProducts'
 
-
 function App() {
+  const location = useLocation()
+
+  const isLoginOrSignup = location.pathname === '/login';
+
   return (
     <>
-      <CategoriesProvider>
-        <ProductsProvider>
-          <Navbar />
-        </ProductsProvider>
-      </CategoriesProvider>
+      {!isLoginOrSignup && (
+        <CategoriesProvider>
+          <ProductsProvider>
+            <Navbar />
+          </ProductsProvider>
+        </CategoriesProvider>
+      )}
 
       <div className='container'>
         <Routes>
@@ -30,7 +35,6 @@ function App() {
           <Route path='*' element={<h1>Not Found</h1>} />
 
           <Route path='/signup' element={<Singup />} />
-
           <Route path='/login' element={<Login />} />
 
           <Route 
@@ -44,9 +48,9 @@ function App() {
           <Route 
             path='/categories' 
             element={
-            <CategoriesProvider>
-              <Categories />
-            </CategoriesProvider>
+              <CategoriesProvider>
+                <Categories />
+              </CategoriesProvider>
             }/>
 
           <Route 
@@ -59,9 +63,8 @@ function App() {
         </Routes>
       </div>
 
-      <Footer />
+      {!isLoginOrSignup && <Footer />}
     </>
-      
   )
 }
 

@@ -48,6 +48,30 @@
   background-color: var(--color-primary-dark);
 }
 
+.empty-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px dashed #ccc;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  width: 25vh;
+  height: 20vh;
+  color: #888;
+}
+
+.empty-card:hover {
+  transform: scale(1.05);
+}
+
+.empty-card p {
+  font-weight: 500;
+}
+
 @media (max-width: 1600px) {
   .grid-container {
     grid-template-columns: repeat(4, 1fr);

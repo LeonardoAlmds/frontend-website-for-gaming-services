@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 20000;
   color: var(--color-font);
 }
 
@@ -78,4 +78,35 @@
 .category-icon {
   width: 50px;
   height: 50px;
+}
+
+.empty-categories {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+}
+
+.empty-categories p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.add-category-btn {
+  margin-top: 15px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  background-color: var(--blue-primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-category-btn:hover {
+  background-color: var(--blue-hover);
 }
